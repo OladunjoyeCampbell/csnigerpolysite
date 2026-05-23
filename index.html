@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Dept of Computer Science | Niger State Poly, Zungeru</title>
+  <meta name="description" content="Department of Computer Science, Niger State Polytechnic, Zungeru. Live data from Google Sheets.">
+  <style>
+    /* (All your existing styles remain exactly the same – no changes needed) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #f6f9fc 0%, #eef2f9 100%);
+      color: #0a2540;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(59,130,246,0.1);
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.25rem;
+      background: linear-gradient(135deg, #0f2e6d, #2266d3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .logo span {
+      font-weight: 400;
+      font-size: 0.7rem;
+      color: #5b6e8c;
+      display: block;
+      background: none;
+      -webkit-background-clip: unset;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #1e2f4e;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      padding: 0.4rem 0.9rem;
+      border-radius: 2rem;
+      background: transparent;
+    }
+    .nav-links a:hover {
+      background: #eef4ff;
+      color: #1d4ed8;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.8rem 1.25rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 80px;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, #0f2e6d, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      border-left: 5px solid #f59e0b;
+      padding-left: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.3rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.05);
+      transition: all 0.25s ease;
+      border: 1px solid rgba(59,130,246,0.12);
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+      border-color: rgba(59,130,246,0.25);
+    }
+
+    .staff-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .avatar-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(145deg, #e6f0ff, #d9e6fa);
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      color: #1e4a8a;
+      border: 1px solid rgba(37,99,235,0.2);
+    }
+    .staff-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .staff-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+      word-wrap: break-word;
+    }
+    .role-badge {
+      background: #eef4ff;
+      color: #1e4a8a;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.7rem;
+      border-radius: 2rem;
+      display: inline-block;
+      margin: 0.25rem 0;
+    }
+    .alumni-badge {
+      background: #fef3c7;
+      color: #b45309;
+    }
+    .staff-email, .staff-phone {
+      font-size: 0.8rem;
+      word-break: break-all;
+      margin-top: 0.4rem;
+    }
+    .staff-email a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    .staff-email a:hover {
+      text-decoration: underline;
+    }
+
+    .news-meta {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      margin: 0.5rem 0;
+      font-size: 0.75rem;
+      color: #5b6e8c;
+      flex-wrap: wrap;
+    }
+    .category-badge {
+      background: #eef2ff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+      font-weight: 600;
+    }
+    .btn {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #2563eb;
+      color: #2563eb;
+    }
+    .btn-outline:hover {
+      background: #eff6ff;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.8rem;
+    }
+    .input, select {
+      padding: 0.6rem 1rem;
+      border-radius: 2rem;
+      border: 1px solid #cbd5e1;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: white;
+      transition: 0.2s;
+    }
+    .input:focus, select:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+    }
+    .empty {
+      padding: 2rem;
+      text-align: center;
+      color: #64748b;
+      background: white;
+      border-radius: 1.5rem;
+    }
+    footer {
+      background: #0a1c3a;
+      color: #b9d0f0;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 680px) {
+      .staff-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .staff-info {
+        width: 100%;
+      }
+      .navbar {
+        flex-direction: column;
+        text-align: center;
+      }
+      .section-title {
+        font-size: 1.4rem;
+      }
+    }
+    details summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: #2563eb;
+      margin-top: 0.5rem;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Alumni form styles */
+    .alumni-form {
+      background: linear-gradient(145deg, #ffffff, #f8fbff);
+      border-radius: 1.5rem;
+      padding: 1.8rem;
+      border: 1px solid #e2edf7;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .full {
+      grid-column: span 2;
+    }
+    @media (max-width: 680px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .full {
+        grid-column: span 1;
+      }
+    }
+    .form-note {
+      font-size: 0.8rem;
+      color: #5b6e8c;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+      Niger State Poly, Zungeru - Dept of Computer Science
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#staff">Staff</a>
+    <a href="#news">News</a>
+    <a href="#documents">Docs</a>
+    <a href="#alumni">Alumni</a>
+    <a href="#calendar">Calendar</a>
+    <a href="https://finalyearprojectsportal.onrender.com" target="_blank">Projects</a>
+  </div>
+</nav>
+
+<main class="container">
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title"> About the Department</h2>
+    <div class="card"><strong>History:</strong> Evolved from a Computer Science unit (under Department of Mathematics & Statistics) into a full department in 2008. The unit earlier ran certificate courses and ND programmes. Under pioneering leadership (Dr. Oladele Campbell), HND accreditation was achieved. Today we offer specialised HND tracks in Software & Web Development and Networking & Cloud Computing, plus ND and PGD Computer Science.</div>
+    <div class="card"><strong>Mission:</strong> To provide practical, industry-relevant computer science education fostering innovation, research, and entrepreneurial skills.<br>
+                        <strong>Vision:</strong> To be a centre of excellence in computing education, producing globally competitive and locally relevant graduates.</div>
+  </section>
+
+  <!-- Programs -->
+  <section id="programs">
+    <h2 class="section-title">📚 Our Programmes</h2>
+    <div class="card-grid">
+      <div class="card"><h3>National Diploma (ND)</h3><p>Computer Science – 2‑year foundation in programming, web, application packages, networking and PC maintenance.</p></div>
+      <div class="card"><h3>HND Software & Web Development</h3><p>Specialised track – full-stack, modern frameworks.</p></div>
+      <div class="card"><h3>HND Networking & Cloud Computing</h3><p>Cloud platforms, cybersecurity, infrastructure.</p></div>
+      <div class="card"><h3>Postgraduate Diploma (PGD)</h3><p>Advanced computing and research.</p></div>
+    </div>
+  </section>
+
+  <!-- Staff -->
+  <section id="staff">
+    <h2 class="section-title">👥 Academic Staff</h2>
+    <div class="toolbar">
+      <input type="text" id="staffSearch" class="input" placeholder="Search by name, role, qualification...">
+      <select id="staffFilter">
+        <option value="all">All</option>
+        <option value="leadership">Leadership</option>
+        <option value="academic">Academic Staff</option>
+        <option value="alumni">Alumni Staff</option>
+      </select>
+    </div>
+    <div id="staffGrid" class="card-grid"></div>
+    <div id="staffEmpty" class="empty" style="display:none">No staff found.</div>
+  </section>
+
+  <!-- News & Notices -->
+  <section id="news">
+    <h2 class="section-title">📰 News & Notices</h2>
+    <div class="toolbar">
+      <input type="text" id="newsSearch" class="input" placeholder="Search news...">
+      <select id="newsFilter">
+        <option value="all">All</option>
+        <option value="news">News</option>
+        <option value="notice">Notices</option>
+        <option value="event">Events</option>
+      </select>
+    </div>
+    <div id="newsGrid" class="card-grid"></div>
+    <div id="newsEmpty" class="empty" style="display:none">No items found.</div>
+  </section>
+
+  <!-- Documents -->
+  <section id="documents">
+    <h2 class="section-title">📁 Documents & Resources</h2>
+    <div id="docsGrid" class="card-grid"></div>
+    <div id="docsEmpty" class="empty" style="display:none">No documents available.</div>
+  </section>
+
+  <!-- Alumni Registration Section -->
+  <section id="alumni">
+    <h2 class="section-title">🎓 Alumni Network</h2>
+    <div class="alumni-form">
+      <h3 style="margin-bottom:0.5rem;">Join our alumni register</h3>
+      <p style="margin-bottom:1.2rem;">Help us maintain accreditation records and build mentorship opportunities. Your data stays with the department.</p>
+      <form id="alumniRegistrationForm">
+        <div class="form-grid">
+          <input type="text" placeholder="Full name *" id="alumName" class="input" required>
+          <input type="number" placeholder="Graduation year *" id="alumYear" class="input" required>
+          <select id="alumProgramme" class="input" required>
+            <option value="">Select programme</option>
+            <option>Certificate in Computer Science</option>
+            <option>ND Computer Science</option>
+            <option>HND Computer Science</option> 
+            <option>HND Software & Web Development</option>
+            <option>HND Networking & Cloud Computing</option>
+            <option>PGD Computer Science</option>
+          </select>
+          <input type="email" placeholder="Email address *" id="alumEmail" class="input" required>
+          <input type="text" placeholder="Current job / organisation" id="alumJob" class="input">
+          <input type="text" placeholder="Phone (optional)" id="alumPhone" class="input">
+          <div class="full">
+            <textarea rows="2" placeholder="Mentoring interest or suggestions" id="alumMessage" class="input" style="width:100%; border-radius:1rem;"></textarea>
+          </div>
+          <div class="full">
+            <button type="submit" class="btn">Register →</button>
+          </div>
+        </div>
+        <div id="formSuccess" style="display:none; margin-top:1.2rem; padding:0.8rem; background:#dcfce7; color:#166534; border-radius:1rem;">✅ Thank you! Your record has been submitted successfully. We will contact you soon.</div>
+        <div id="formError" style="display:none; margin-top:1.2rem; padding:0.8rem; background:#fee2e2; color:#991b1b; border-radius:1rem;">❌ Submission failed. Please try again or contact the department.</div>
+        <p class="form-note">* Your information will be stored securely in the departmental alumni database.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== FIXED CALENDAR SECTION ========== -->
+  <section id="calendar">
+    <h2 class="section-title">📅 Academic Calendar</h2>
+    <div class="card">
+      <iframe src="https://calendar.google.com/calendar/embed?src=academic%40nigerpoly.edu.ng&ctz=Africa/Lagos" 
+              style="border:0; width:100%; height:400px; border-radius:1rem;" 
+              frameborder="0" scrolling="no"
+              title="Department Academic Calendar"></iframe>
+      <p class="form-note" style="margin-top:0.8rem;">* Make sure the calendar is shared publicly (Settings → Make available to public). Replace the `src` with your own calendar embed code.</p>
+    </div>
+  </section>
+
+  <!-- Contact & Location -->
+  <section id="contact">
+    <h2 class="section-title">📞 Contact & Location</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Department Office</h3>
+        <p>College of Science and Technology, Niger State Polytechnic, Zungeru<br>P.M.B. 01, Along Zungeru/Wushishi Road, Niger State, Nigeria</p>
+        <p>📧 info@csnigerpoly.com<br>📞 +234 (0) 81357 11600</p>
+      </div>
+      <div class="card">
+        <h3>Office Hours</h3>
+        <p>Monday – Friday: 8:00am – 4:00pm<br>Closed on public holidays.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Department of Computer Science, Niger State Polytechnic, Zungeru<br>📍 P.M.B. 01, Zungeru, Niger State | ✉️ info@csnigerpoly.com</p>
+  <p>&copy; 2026 | Data powered by Google Sheets</p>
+</footer>
+
+<script>
+  // ========== CONFIGURATION ==========
+  const BASE_URL = "https://script.google.com/macros/s/AKfycbwh97f3osbUWcACO5C76oVfMdViCNZAje-4YFVLNNRhBjjCRqUb3qK_uqWIxNOm9b0UOg/exec"; // Replace with your actual URL
+  const CONFIG = {
+    staffEndpoint: `${BASE_URL}?sheet=staff`,
+    newsEndpoint: `${BASE_URL}?sheet=news`,
+    noticesEndpoint: `${BASE_URL}?sheet=notices`,
+    docsEndpoint: `${BASE_URL}?sheet=documents`,
+    alumniEndpoint: `${BASE_URL}`,
+    useRemote: true
+  };
+
+  let staffData = [], newsData = [], noticesData = [], docsData = [];
+
+  async function fetchJSON(url) {
+    try {
+      const res = await fetch(url, { cache: "no-store" });
+      const json = await res.json();
+      return json.data || [];
+    } catch (err) {
+      console.warn("Fetch error:", err);
+      return [];
+    }
+  }
+
+  async function loadAllData() {
+    if (!CONFIG.useRemote) return;
+    const [staff, news, notices, docs] = await Promise.all([
+      fetchJSON(CONFIG.staffEndpoint),
+      fetchJSON(CONFIG.newsEndpoint),
+      fetchJSON(CONFIG.noticesEndpoint),
+      fetchJSON(CONFIG.docsEndpoint)
+    ]);
+    staffData = staff;
+    newsData = news;
+    noticesData = notices;
+    docsData = docs;
+    renderStaff();
+    renderNews();
+    renderDocs();
+  }
+
+  function renderStaff() {
+    const searchTerm = document.getElementById("staffSearch")?.value.toLowerCase() || "";
+    const filter = document.getElementById("staffFilter")?.value || "all";
+    let filtered = staffData.filter(s => {
+      if (s.status !== "active") return false;
+      const matchesSearch = (s.name || "").toLowerCase().includes(searchTerm) ||
+                            (s.role || "").toLowerCase().includes(searchTerm) ||
+                            (s.qualification || "").toLowerCase().includes(searchTerm);
+      if (!matchesSearch) return false;
+      if (filter === "leadership") return s.category === "leadership";
+      if (filter === "academic") return s.category === "academic";
+      if (filter === "alumni") return s.alumni === true || s.alumni === "TRUE" || s.alumni === "true";
+      return true;
+    });
+    const grid = document.getElementById("staffGrid");
+    const emptyMsg = document.getElementById("staffEmpty");
+    if (!grid) return;
+    if (filtered.length === 0) {
+      grid.innerHTML = "";
+      emptyMsg.style.display = "block";
+      return;
+    }
+    emptyMsg.style.display = "none";
+    grid.innerHTML = filtered.map(s => {
+      const alumniFlag = (s.alumni === true || s.alumni === "TRUE" || s.alumni === "true");
+      return `
+        <div class="card staff-card">
+          <div class="avatar-icon">👤</div>
+          <div class="staff-info">
+            <h3>${escapeHtml(s.name)}</h3>
+            <div class="role-badge">${escapeHtml(s.role || "Staff")}</div>
+            <div><small>${escapeHtml(s.qualification || "")}</small></div>
+            ${alumniFlag ? '<div class="role-badge alumni-badge">🎓 Alumni</div>' : ''}
+            ${s.email ? `<div class="staff-email"><a href="mailto:${escapeHtml(s.email)}">${escapeHtml(s.email)}</a></div>` : ''}
+            ${s.phone ? `<div class="staff-phone">📞 ${escapeHtml(s.phone)}</div>` : ''}
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function renderNews() {
+    const searchTerm = document.getElementById("newsSearch")?.value.toLowerCase() || "";
+    const filter = document.getElementById("newsFilter")?.value || "all";
+    let allItems = [
+      ...newsData.map(n => ({ ...n, source: "news" })),
+      ...noticesData.map(n => ({ ...n, source: "notice" }))
+    ];
+    let filtered = allItems.filter(item => {
+      if (item.status !== "published") return false;
+      if (filter !== "all" && item.category !== filter) return false;
+      const title = (item.title || "").toLowerCase();
+      const summary = (item.summary || "").toLowerCase();
+      if (searchTerm && !title.includes(searchTerm) && !summary.includes(searchTerm)) return false;
+      if (item.expiry_date && new Date(item.expiry_date) < new Date()) return false;
+      return true;
+    });
+    filtered.sort((a,b) => new Date(b.publish_date || 0) - new Date(a.publish_date || 0));
+    const grid = document.getElementById("newsGrid");
+    const emptyMsg = document.getElementById("newsEmpty");
+    if (!grid) return;
+    if (filtered.length === 0) {
+      grid.innerHTML = "";
+      emptyMsg.style.display = "block";
+      return;
+    }
+    emptyMsg.style.display = "none";
+    grid.innerHTML = filtered.map(item => `
+      <div class="card">
+        <h3>${escapeHtml(item.title)}</h3>
+        <div class="news-meta">
+          <span class="category-badge">${escapeHtml(item.category || "news")}</span>
+          ${item.publish_date ? `<span>📅 ${escapeHtml(item.publish_date)}</span>` : ""}
+        </div>
+        <p>${escapeHtml(item.summary || "")}</p>
+        ${item.body ? `<details><summary>Read more</summary><p>${escapeHtml(item.body)}</p></details>` : ""}
+      </div>
+    `).join("");
+  }
+
+  function renderDocs() {
+    let filtered = docsData.filter(d => d.status === "published");
+    const grid = document.getElementById("docsGrid");
+    const emptyMsg = document.getElementById("docsEmpty");
+    if (!grid) return;
+    if (filtered.length === 0) {
+      grid.innerHTML = "";
+      emptyMsg.style.display = "block";
+      return;
+    }
+    emptyMsg.style.display = "none";
+    grid.innerHTML = filtered.map(doc => `
+      <div class="card">
+        <h3>${escapeHtml(doc.title)}</h3>
+        <p>${escapeHtml(doc.summary || "")}</p>
+        <a href="${escapeHtml(doc.url)}" class="btn btn-outline" target="_blank">Open ${escapeHtml(doc.type || "document")}</a>
+      </div>
+    `).join("");
+  }
+
+  function escapeHtml(str) {
+    if (!str) return "";
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === "&") return "&amp;";
+      if (m === "<") return "&lt;";
+      if (m === ">") return "&gt;";
+      return m;
+    });
+  }
+
+  // Alumni form submission
+  const alumniForm = document.getElementById("alumniRegistrationForm");
+  const successDiv = document.getElementById("formSuccess");
+  const errorDiv = document.getElementById("formError");
+
+  if (alumniForm) {
+    alumniForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = {
+        fullname: document.getElementById("alumName").value.trim(),
+        graduation_year: document.getElementById("alumYear").value.trim(),
+        programme: document.getElementById("alumProgramme").value,
+        email: document.getElementById("alumEmail").value.trim(),
+        current_job: document.getElementById("alumJob").value.trim(),
+        phone: document.getElementById("alumPhone").value.trim(),
+        message: document.getElementById("alumMessage").value.trim()
+      };
+      if (!formData.fullname || !formData.graduation_year || !formData.programme || !formData.email) {
+        alert("Please fill all required fields (*)");
+        return;
+      }
+      successDiv.style.display = "none";
+      errorDiv.style.display = "none";
+      try {
+        await fetch(CONFIG.alumniEndpoint, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        });
+        successDiv.style.display = "block";
+        alumniForm.reset();
+        setTimeout(() => { successDiv.style.display = "none"; }, 4000);
+      } catch (err) {
+        errorDiv.style.display = "block";
+        setTimeout(() => { errorDiv.style.display = "none"; }, 4000);
+      }
+    });
+  }
+
+  document.getElementById("staffSearch")?.addEventListener("input", renderStaff);
+  document.getElementById("staffFilter")?.addEventListener("change", renderStaff);
+  document.getElementById("newsSearch")?.addEventListener("input", renderNews);
+  document.getElementById("newsFilter")?.addEventListener("change", renderNews);
+
+  if (CONFIG.useRemote) {
+    loadAllData();
+  } else {
+    console.warn("Using fallback data");
+    staffData = [];
+    renderStaff();
+    renderNews();
+    renderDocs();
+  }
+</script>
+</body>
+</html>

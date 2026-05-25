@@ -519,42 +519,49 @@
     const searchTerm = document.getElementById("staffSearch")?.value.toLowerCase() || "";
     const filter = document.getElementById("staffFilter")?.value || "all";
     let filtered = staffData.filter(s => {
-      if (s.status !== "active") return false;
-      const matchesSearch = (s.name || "").toLowerCase().includes(searchTerm) ||
-                            (s.role || "").toLowerCase().includes(searchTerm) ||
-                            (s.qualification || "").toLowerCase().includes(searchTerm);
-      if (!matchesSearch) return false;
-      if (filter === "leadership") return s.category === "leadership";
-      if (filter === "academic") return s.category === "academic";
-      if (filter === "alumni") return s.alumni === true || s.alumni === "TRUE" || s.alumni === "true";
-      return true;
+        if (s.status !== "active") return false;
+        const matchesSearch = (s.name || "").toLowerCase().includes(searchTerm) ||
+                              (s.role || "").toLowerCase().includes(searchTerm) ||
+                              (s.qualification || "").toLowerCase().includes(searchTerm);
+        if (!matchesSearch) return false;
+        if (filter === "leadership") return s.category === "leadership";
+        if (filter === "academic") return s.category === "academic";
+        if (filter === "alumni") return s.alumni === true || s.alumni === "TRUE" || s.alumni === "true";
+        return true;
     });
     const grid = document.getElementById("staffGrid");
     const emptyMsg = document.getElementById("staffEmpty");
     if (!grid) return;
     if (filtered.length === 0) {
-      grid.innerHTML = "";
-      emptyMsg.style.display = "block";
-      return;
+        grid.innerHTML = "";
+        emptyMsg.style.display = "block";
+        return;
     }
     emptyMsg.style.display = "none";
     grid.innerHTML = filtered.map(s => {
-      const alumniFlag = (s.alumni === true || s.alumni === "TRUE" || s.alumni === "true");
-      return `
-        <div class="card staff-card">
-          <div class="avatar-icon">👤</div>
-          <div class="staff-info">
-            <h3>${escapeHtml(s.name)}</h3>
-            <div class="role-badge">${escapeHtml(s.role || "Staff")}</div>
-            <div><small>${escapeHtml(s.qualification || "")}</small></div>
-            ${alumniFlag ? '<div class="role-badge alumni-badge">🎓 Alumni</div>' : ''}
-            ${s.email ? `<div class="staff-email"><a href="mailto:${escapeHtml(s.email)}">${escapeHtml(s.email)}</a></div>` : ''}
-            ${s.phone ? `<div class="staff-phone">📞 ${escapeHtml(s.phone)}</div>` : ''}
-          </div>
-        </div>
-      `;
+        const alumniFlag = (s.alumni === true || s.alumni === "TRUE" || s.alumni === "true");
+        // If a photo URL exists, use an <img> tag; otherwise, use a placeholder icon
+        const avatarHtml = s.photo_url && s.photo_url.trim() !== "" 
+            ? `<img src="${escapeHtml(s.photo_url)}" alt="${escapeHtml(s.name)}" style="width: 56px; height: 56px; border-radius: 28px; object-fit: cover;">`
+            : `<div class="avatar-icon">👤</div>`;
+        return `
+            <div class="card staff-card">
+                <div class="staff-avatar" style="padding: 0; background: none;">
+                    ${avatarHtml}
+                </div>
+                <div class="staff-info">
+                    <h3>${escapeHtml(s.name)}</h3>
+                    <div class="role-badge">${escapeHtml(s.role || "Staff")}</div>
+                    <div><small>${escapeHtml(s.qualification || "")}</small></div>
+                    ${alumniFlag ? '<div class="role-badge alumni-badge">🎓 Alumni</div>' : ''}
+                    ${s.email ? `<div class="staff-email"><a href="mailto:${escapeHtml(s.email)}">${escapeHtml(s.email)}</a></div>` : ''}
+                    ${s.phone ? `<div class="staff-phone">📞 ${escapeHtml(s.phone)}</div>` : ''}
+                </div>
+            </div>
+        `;
     }).join("");
   }
+  
 
   function renderNews() {
     const searchTerm = document.getElementById("newsSearch")?.value.toLowerCase() || "";

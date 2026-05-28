@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Computer Science | Niger State Polytechnic, Zungeru</title>
+  <meta name="description" content="Department of Computer Science, Niger State Polytechnic, Zungeru — producing globally competitive graduates in software development, networking, and cloud computing since 1999.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dept of Computer Science — Niger State Polytechnic, Zungeru">
+  <meta property="og:description" content="Producing globally competitive graduates in software, networking, and cloud computing since 1999. ND · HND · PGD programmes.">
+  <meta property="og:site_name" content="NigerPoly CS Department">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CS Dept — Niger State Polytechnic, Zungeru">
+  <meta name="twitter:description" content="Practical, industry-relevant computing education. ND · HND · PGD programmes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#0b1f4b; --blue:#1d4ed8; --blue-lt:#3b82f6;
+      --amber:#f59e0b; --amber-lt:#fef3c7;
+      --green:#166534; --green-lt:#dcfce7;
+      --red:#991b1b;   --red-lt:#fee2e2;
+      --bg:#f4f7fc; --bg2:#eef2fa; --surface:#ffffff;
+      --border:rgba(59,130,246,0.13);
+      --text:#0a1c3a; --muted:#5b6e8c;
+      --shadow:0 8px 24px rgba(11,31,75,0.07),0 2px 6px rgba(11,31,75,0.04);
+      --shadow-hover:0 20px 40px rgba(11,31,75,0.13);
+      --radius-sm:0.75rem; --radius:1.25rem; --radius-lg:2rem;
+      --font-display:'DM Serif Display',Georgia,serif;
+      --font-body:'DM Sans',system-ui,sans-serif;
+      --nav-h:64px;
+    }
+    [data-theme="dark"] {
+      --bg:#080f1e; --bg2:#0d1a35; --surface:#111d38;
+      --border:rgba(59,130,246,0.2);
+      --text:#e2eaf8; --muted:#8fa8cc;
+      --shadow:0 8px 24px rgba(0,0,0,0.3),0 2px 6px rgba(0,0,0,0.2);
+      --shadow-hover:0 20px 40px rgba(0,0,0,0.4);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s}
+    .skip-link{position:absolute;top:-100%;left:1rem;background:var(--blue);color:#fff;padding:.5rem 1rem;border-radius:var(--radius-sm);font-weight:600;z-index:9999;transition:top .2s}
+    .skip-link:focus{top:1rem}
+
+    /* NAVBAR */
+    .navbar{height:var(--nav-h);background:rgba(255,255,255,0.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--border),var(--shadow);position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;gap:1rem;transition:background .3s}
+    [data-theme="dark"] .navbar{background:rgba(8,15,30,0.88)}
+    .logo{display:flex;flex-direction:column;line-height:1.1;text-decoration:none}
+    .logo-primary{font-family:var(--font-display);font-size:1.15rem;color:var(--navy);transition:color .3s}
+    [data-theme="dark"] .logo-primary{color:#e2eaf8}
+    .logo-sub{font-size:.65rem;font-weight:500;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+    .nav-right{display:flex;align-items:center;gap:.25rem}
+    .nav-links{display:flex;gap:.1rem;flex-wrap:wrap}
+    .nav-links a{text-decoration:none;color:var(--text);font-weight:500;font-size:.82rem;padding:.4rem .8rem;border-radius:2rem;transition:background .18s,color .18s}
+    .nav-links a:hover,.nav-links a[aria-current="page"]{background:#eef4ff;color:var(--blue)}
+    [data-theme="dark"] .nav-links a:hover{background:rgba(59,130,246,0.15);color:var(--blue-lt)}
+    .theme-btn{background:none;border:1px solid var(--border);border-radius:2rem;width:2.2rem;height:2.2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--muted);transition:all .2s;margin-left:.5rem;flex-shrink:0}
+    .theme-btn:hover{border-color:var(--blue-lt);color:var(--blue)}
+
+    /* HERO */
+    .hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;background:var(--navy);isolation:isolate}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 50%,rgba(29,78,216,.55) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 80% 20%,rgba(245,158,11,.18) 0%,transparent 55%),radial-gradient(ellipse 50% 50% at 60% 80%,rgba(59,130,246,.2) 0%,transparent 50%);z-index:0}
+    .hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:32px 32px;z-index:0}
+    .hero-content{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:5rem 2rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);padding:.3rem .9rem;border-radius:2rem;margin-bottom:1.5rem}
+    .hero h1{font-family:var(--font-display);font-size:clamp(2.6rem,5vw,4.2rem);color:#fff;line-height:1.08;margin-bottom:1.5rem}
+    .hero h1 em{font-style:italic;color:var(--amber)}
+    .hero-lead{font-size:1.05rem;color:rgba(255,255,255,.72);max-width:480px;margin-bottom:2.5rem;line-height:1.7}
+    .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+    .btn-hero{display:inline-flex;align-items:center;gap:.45rem;padding:.75rem 1.6rem;border-radius:2rem;font-weight:600;font-size:.9rem;text-decoration:none;transition:all .22s;border:none;cursor:pointer}
+    .btn-hero-primary{background:var(--amber);color:var(--navy)}
+    .btn-hero-primary:hover{background:#fbbf24;transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,158,11,.35)}
+    .btn-hero-outline{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px)}
+    .btn-hero-outline:hover{background:rgba(255,255,255,.18);transform:translateY(-2px)}
+    .hero-visual{display:flex;justify-content:center;align-items:center}
+    .hero-card-stack{position:relative;width:340px;height:340px}
+    .hc{position:absolute;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:var(--radius);backdrop-filter:blur(16px);padding:1.2rem 1.5rem;color:#fff}
+    .hc-1{top:0;left:0;right:0;animation:float1 6s ease-in-out infinite}
+    .hc-2{bottom:0;right:0;left:40px;animation:float2 7s ease-in-out infinite}
+    .hc-3{top:50%;left:50%;transform:translate(-50%,-50%);width:180px;text-align:center;animation:float3 5s ease-in-out infinite}
+    @keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+    @keyframes float3{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-54%) scale(1.03)}}
+    .hc-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.5);margin-bottom:.3rem}
+    .hc-value{font-family:var(--font-display);font-size:2rem;color:var(--amber)}
+    .hc-value-sm{font-size:1rem;font-weight:600}
+    .hc-desc{font-size:.75rem;color:rgba(255,255,255,.6)}
+
+    /* STATS */
+    .stats-strip{background:var(--surface);border-bottom:1px solid var(--border)}
+    .stats-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+    .stat-item{padding:1.8rem 2rem;text-align:center;border-right:1px solid var(--border);transition:background .2s}
+    .stat-item:last-child{border-right:none}
+    .stat-item:hover{background:var(--bg2)}
+    .stat-num{font-family:var(--font-display);font-size:2.4rem;color:var(--blue);line-height:1;margin-bottom:.3rem}
+    [data-theme="dark"] .stat-num{color:var(--blue-lt)}
+    .stat-label{font-size:.8rem;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+
+    /* LAYOUT */
+    .container{max-width:1280px;margin:0 auto;padding:2rem 1.5rem}
+    section{margin-bottom:4rem;scroll-margin-top:calc(var(--nav-h) + 1rem)}
+    .section-title{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.1rem);color:var(--navy);margin-bottom:.4rem;display:flex;align-items:center;gap:.6rem}
+    [data-theme="dark"] .section-title{color:#e2eaf8}
+    .section-title-icon{font-size:1.4rem}
+    .section-sub{font-size:.9rem;color:var(--muted);margin-bottom:2rem}
+    .title-accent{display:inline-block;width:40px;height:4px;background:var(--amber);border-radius:2px;margin-left:.5rem;vertical-align:middle}
+
+    /* CARDS */
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+    .card{background:var(--surface);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);border:1px solid var(--border);transition:transform .25s,box-shadow .25s,border-color .25s}
+    .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:rgba(59,130,246,.3)}
+    .card h3{font-size:1.05rem;font-weight:600;margin-bottom:.5rem;color:var(--text)}
+    .card p{color:var(--muted);font-size:.9rem;line-height:1.6}
+
+    /* SKELETON */
+    @keyframes shimmer{0%{background-position:-600px 0}100%{background-position:600px 0}}
+    .skeleton{background:linear-gradient(90deg,var(--bg2) 25%,var(--border) 50%,var(--bg2) 75%);background-size:1200px 100%;animation:shimmer 1.4s infinite linear;border-radius:.5rem}
+    .skeleton-card{background:var(--surface);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);display:flex;gap:1rem;align-items:flex-start}
+    .sk-avatar{width:80px;height:80px;border-radius:var(--radius-sm);flex-shrink:0}
+    .sk-lines{flex:1;display:flex;flex-direction:column;gap:.6rem;padding-top:.3rem}
+    .sk-line{height:14px}
+    .sk-line.w-75{width:75%}.sk-line.w-50{width:50%}.sk-line.w-90{width:90%}.sk-line.w-40{width:40%}
+
+    /* STAFF */
+    .staff-card{display:flex;gap:1.2rem;align-items:flex-start}
+    .avatar-icon{width:80px;height:80px;background:linear-gradient(145deg,#e6f0ff,#d9e6fa);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;color:#1e4a8a;border:1px solid rgba(37,99,235,.15)}
+    [data-theme="dark"] .avatar-icon{background:rgba(37,99,235,.15);border-color:rgba(37,99,235,.3)}
+    .staff-photo{width:80px;height:80px;border-radius:var(--radius-sm);object-fit:cover}
+    .staff-info{flex:1;min-width:0}
+    .staff-info h3{font-size:1rem;margin-bottom:.25rem}
+    .role-badge{display:inline-flex;align-items:center;gap:.3rem;background:#eef4ff;color:#1e4a8a;font-size:.68rem;font-weight:600;padding:.2rem .65rem;border-radius:2rem;margin:.25rem 0}
+    [data-theme="dark"] .role-badge{background:rgba(37,99,235,.2);color:#93c5fd}
+    .alumni-badge{background:var(--amber-lt);color:#92400e}
+    [data-theme="dark"] .alumni-badge{background:rgba(245,158,11,.15);color:#fbbf24}
+    .staff-email a{color:var(--blue-lt);text-decoration:none;font-size:.8rem}
+    .staff-email a:hover{text-decoration:underline}
+    .staff-phone{font-size:.8rem;color:var(--muted);margin-top:.3rem}
+    .staff-qual{font-size:.78rem;color:var(--muted)}
+
+    /* PROGRAMMES */
+    .prog-card{position:relative;overflow:hidden;padding:2rem}
+    .prog-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+    .prog-card:hover::before{transform:scaleX(1)}
+    .prog-icon{font-size:2rem;margin-bottom:.8rem}
+    .prog-card h3{font-family:var(--font-display);font-size:1.25rem;margin-bottom:.5rem}
+    .prog-duration{display:inline-flex;align-items:center;gap:.3rem;font-size:.72rem;font-weight:600;color:var(--blue-lt);background:rgba(59,130,246,.1);padding:.15rem .6rem;border-radius:2rem;margin-bottom:.8rem}
+    .prog-modules{list-style:none;margin-top:.8rem}
+    .prog-modules li{font-size:.82rem;color:var(--muted);padding:.25rem 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem}
+    .prog-modules li:last-child{border-bottom:none}
+    .prog-modules li::before{content:'→';color:var(--blue-lt);font-size:.7rem;flex-shrink:0}
+    .prog-outcomes{margin-top:1rem;font-size:.82rem;color:var(--muted)}
+    .prog-outcomes strong{color:var(--text)}
+
+    /* PROJECTS */
+    .project-card{padding:1.8rem;position:relative;overflow:hidden}
+    .project-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--amber));opacity:0;transition:opacity .3s}
+    .project-card:hover::after{opacity:1}
+    .project-tag{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--blue-lt);margin-bottom:.6rem}
+    .project-card h3{font-size:1.05rem;margin-bottom:.4rem}
+    .project-student{font-size:.8rem;color:var(--muted);margin-bottom:.8rem}
+    .project-tech{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.8rem}
+    .tech-tag{font-size:.68rem;font-weight:600;background:var(--bg2);color:var(--muted);padding:.2rem .55rem;border-radius:.4rem;border:1px solid var(--border)}
+
+    /* NEWS */
+    .news-meta{display:flex;gap:.6rem;align-items:center;margin:.5rem 0;font-size:.75rem;color:var(--muted);flex-wrap:wrap}
+    .category-badge{background:#eef2ff;color:#3730a3;padding:.15rem .6rem;border-radius:2rem;font-weight:600;font-size:.68rem}
+    [data-theme="dark"] .category-badge{background:rgba(99,102,241,.15);color:#a5b4fc}
+    details summary{cursor:pointer;font-weight:600;color:var(--blue-lt);margin-top:.7rem;font-size:.85rem;list-style:none}
+    details summary::-webkit-details-marker{display:none}
+    details[open] summary::before{content:'▲ ';font-size:.65rem}
+    details:not([open]) summary::before{content:'▼ ';font-size:.65rem}
+    details p{margin-top:.6rem;font-size:.88rem;color:var(--muted)}
+
+    /* TOOLBAR */
+    .toolbar{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:1.8rem}
+    .input{padding:.6rem 1rem;border-radius:2rem;border:1px solid var(--border);font-family:var(--font-body);font-size:.88rem;background:var(--surface);color:var(--text);transition:border .2s,box-shadow .2s}
+    .input:focus{outline:none;border-color:var(--blue-lt);box-shadow:0 0 0 3px rgba(59,130,246,.12)}
+    select.input{cursor:pointer}
+
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:2fr 1fr;gap:1.5rem}
+    .mission-vision{display:flex;flex-direction:column;gap:1rem}
+    .mv-card{background:linear-gradient(135deg,var(--navy),#1e3a8a);border-radius:var(--radius);padding:1.5rem;color:#fff;flex:1}
+    .mv-card h4{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--amber);margin-bottom:.5rem}
+    .mv-card p{font-size:.88rem;color:rgba(255,255,255,.82);line-height:1.65}
+    .history-table{width:100%;border-collapse:collapse;font-size:.88rem;margin:1rem 0}
+    .history-table th{padding:.65rem .8rem;text-align:left;background:var(--bg2);color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+    .history-table td{padding:.65rem .8rem;border-bottom:1px solid var(--border);color:var(--text)}
+    .history-table tr:last-child td{border-bottom:none}
+    .history-table tr:hover td{background:var(--bg2)}
+    .current-hod{font-weight:600;color:var(--blue-lt)}
+
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--blue);color:white;padding:.55rem 1.2rem;border-radius:2rem;text-decoration:none;font-size:.85rem;font-weight:600;transition:all .2s;border:none;cursor:pointer;font-family:var(--font-body)}
+    .btn:hover{background:#1a44c8;transform:translateY(-1px);box-shadow:0 4px 12px rgba(29,78,216,.3)}
+    .btn-outline{background:transparent;border:1px solid var(--blue-lt);color:var(--blue-lt)}
+    .btn-outline:hover{background:rgba(59,130,246,.08);transform:translateY(-1px)}
+
+    /* EVENTS */
+    .event-card-inner{padding:1.5rem}
+    .event-badge{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:.2rem .7rem;border-radius:2rem}
+    .event-date-label{font-size:.75rem;color:var(--muted)}
+    .event-time{font-size:.82rem;color:var(--blue-lt);margin:.3rem 0}
+    .event-location{font-size:.82rem;color:var(--muted);margin:.2rem 0}
+    .event-desc{font-size:.82rem;color:var(--muted);margin-top:.5rem;line-height:1.5}
+
+    /* ALUMNI FORM */
+    .alumni-form{background:var(--surface);border-radius:var(--radius);padding:2rem;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.2rem}
+    .full{grid-column:span 2}
+    .form-note{font-size:.78rem;color:var(--muted);margin-top:.8rem}
+    .alert{padding:.9rem 1.2rem;border-radius:var(--radius-sm);font-size:.88rem;font-weight:500;margin-top:1rem}
+    .alert-success{background:var(--green-lt);color:var(--green)}
+    .alert-error{background:var(--red-lt);color:var(--red)}
+    [data-theme="dark"] .alert-success{background:rgba(22,101,52,.25);color:#86efac}
+    [data-theme="dark"] .alert-error{background:rgba(153,27,27,.25);color:#fca5a5}
+
+    /* CALENDAR */
+    .calendar-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .calendar-wrap iframe{display:block}
+
+    /* CONTACT */
+    .contact-icon{font-size:1.8rem;margin-bottom:.6rem}
+    .contact-info{font-size:.88rem;color:var(--muted);line-height:1.8}
+    .contact-info a{color:var(--blue-lt);text-decoration:none}
+    .contact-info a:hover{text-decoration:underline}
+
+    /* EMPTY */
+    .empty{padding:3rem 2rem;text-align:center;color:var(--muted);background:var(--surface);border-radius:var(--radius);border:1px dashed var(--border);font-size:.9rem}
+
+    /* FOOTER */
+    footer{background:var(--navy);color:rgba(255,255,255,.55);padding:2.5rem 2rem;margin-top:1rem;font-size:.82rem;line-height:1.8}
+    .footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem}
+    .footer-col h4{color:rgba(255,255,255,.75);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem}
+    .footer-col a{color:rgba(255,255,255,.5);text-decoration:none;display:block;padding:.15rem 0;transition:color .2s}
+    .footer-col a:hover{color:var(--amber)}
+    .footer-bottom{max-width:1280px;margin:1.5rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+    .footer-credit{color:rgba(255,255,255,.35);font-size:.75rem}
+
+    /* ADMIN PANEL */
+    .admin-fab{position:fixed;bottom:1.8rem;right:1.8rem;width:3.2rem;height:3.2rem;background:var(--navy);color:#fff;border:none;border-radius:50%;font-size:1.3rem;cursor:pointer;box-shadow:0 4px 20px rgba(11,31,75,.35);z-index:500;display:flex;align-items:center;justify-content:center;transition:all .2s}
+    .admin-fab:hover{background:var(--blue);transform:scale(1.08)}
+    .admin-overlay{display:none;position:fixed;inset:0;background:rgba(8,15,30,.7);z-index:600;backdrop-filter:blur(4px);align-items:flex-start;justify-content:center;padding:1rem;overflow-y:auto}
+    .admin-overlay.open{display:flex}
+    .admin-panel{background:var(--surface);border-radius:var(--radius-lg);width:100%;max-width:680px;margin:auto;box-shadow:0 32px 80px rgba(0,0,0,.3);overflow:hidden;animation:slideUp .3s ease}
+    @keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .admin-header{background:var(--navy);padding:1.4rem 1.8rem;display:flex;align-items:center;justify-content:space-between}
+    .admin-header h2{font-family:var(--font-display);color:#fff;font-size:1.2rem}
+    .admin-header p{color:rgba(255,255,255,.55);font-size:.78rem;margin-top:.15rem}
+    .admin-close{background:rgba(255,255,255,.1);border:none;color:#fff;width:2rem;height:2rem;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0}
+    .admin-close:hover{background:rgba(255,255,255,.2)}
+    .admin-body{padding:1.8rem}
+    .admin-login{text-align:center}
+    .admin-login p{color:var(--muted);font-size:.88rem;margin-bottom:1.2rem}
+    .admin-login-row{display:flex;gap:.6rem;max-width:340px;margin:0 auto}
+    .admin-tabs{display:flex;gap:.4rem;margin-bottom:1.5rem;background:var(--bg2);padding:.3rem;border-radius:2rem}
+    .admin-tab{flex:1;padding:.5rem;border:none;border-radius:2rem;background:none;font-family:var(--font-body);font-size:.82rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s}
+    .admin-tab.active{background:var(--surface);color:var(--navy);box-shadow:0 2px 8px rgba(11,31,75,.1)}
+    [data-theme="dark"] .admin-tab.active{color:#e2eaf8}
+    .admin-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    .admin-form-grid .full{grid-column:span 2}
+    .field-label{font-size:.75rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem}
+    .field-wrap{display:flex;flex-direction:column}
+    .event-item{background:var(--bg2);border-radius:var(--radius-sm);padding:1rem 1.2rem;margin-bottom:.7rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;border:1px solid var(--border)}
+    .event-item-info h4{font-size:.95rem;font-weight:600;margin-bottom:.2rem}
+    .event-item-meta{font-size:.78rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.3rem}
+    .event-cat-badge{font-size:.68rem;font-weight:700;text-transform:uppercase;padding:.15rem .55rem;border-radius:2rem;background:rgba(29,78,216,.1);color:var(--blue-lt)}
+    .event-actions{display:flex;gap:.4rem;flex-shrink:0}
+    .btn-icon{width:2rem;height:2rem;border-radius:.5rem;border:1px solid var(--border);background:var(--surface);cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;transition:all .18s;color:var(--text)}
+    .btn-icon:hover{border-color:var(--blue-lt);background:#eef4ff}
+    .btn-icon.danger:hover{border-color:#f87171;background:#fef2f2}
+    .admin-empty{text-align:center;padding:2rem;color:var(--muted);font-size:.88rem}
+    .admin-alert{padding:.75rem 1rem;border-radius:var(--radius-sm);font-size:.85rem;font-weight:500;margin-bottom:1rem}
+    .admin-alert-success{background:var(--green-lt);color:var(--green)}
+    .admin-alert-error{background:var(--red-lt);color:var(--red)}
+    [data-theme="dark"] .admin-alert-success{background:rgba(22,101,52,.25);color:#86efac}
+    [data-theme="dark"] .admin-alert-error{background:rgba(153,27,27,.25);color:#fca5a5}
+    .spinner{display:inline-block;width:1rem;height:1rem;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:.4rem}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* HAMBURGER MENU */
+    .hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:1px solid var(--border);border-radius:.6rem;width:2.4rem;height:2.4rem;padding:.4rem;cursor:pointer;transition:all .2s;flex-shrink:0}
+    .hamburger span{display:block;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(11,31,75,.12);z-index:190;padding:1rem 1.5rem 1.5rem;flex-direction:column;gap:.25rem}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{text-decoration:none;color:var(--text);font-weight:500;font-size:.95rem;padding:.7rem 1rem;border-radius:.75rem;transition:background .18s,color .18s;border-bottom:1px solid var(--border)}
+    .mobile-menu a:last-child{border-bottom:none}
+    .mobile-menu a:hover{background:var(--bg2);color:var(--blue)}
+
+    /* WHATSAPP BUTTON */
+    .wa-fab{position:fixed;bottom:1.8rem;right:5.4rem;width:3.2rem;height:3.2rem;background:#25d366;color:#fff;border:none;border-radius:50%;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,.4);z-index:500;display:flex;align-items:center;justify-content:center;transition:all .2s;text-decoration:none}
+    .wa-fab:hover{background:#1ebe5d;transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.5)}
+
+    /* COUNTDOWN BADGE */
+    .countdown-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:2rem;margin-top:.4rem}
+    .countdown-urgent{background:#fee2e2;color:#991b1b}
+    .countdown-soon{background:#fef3c7;color:#92400e}
+    .countdown-normal{background:#e0f2fe;color:#0369a1}
+
+    /* ANIMATIONS */
+    .fade-in{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+    .fade-in.visible{opacity:1;transform:none}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .hero-content{grid-template-columns:1fr;gap:2.5rem}
+      .hero-visual{display:none}
+      .stats-inner{grid-template-columns:repeat(2,1fr)}
+      .stat-item:nth-child(2){border-right:none}
+      .about-grid{grid-template-columns:1fr}
+      .footer-inner{grid-template-columns:1fr}
+    }
+    @media(max-width:680px){
+      .navbar{padding:0 1rem}
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .stats-inner{grid-template-columns:repeat(2,1fr)}
+      .form-grid{grid-template-columns:1fr}
+      .full{grid-column:span 1}
+      .staff-card{flex-direction:column;align-items:center;text-align:center}
+      .hero-content{padding:3rem 1.25rem}
+      .admin-form-grid{grid-template-columns:1fr}
+      .admin-form-grid .full{grid-column:span 1}
+      .admin-fab{bottom:1rem;right:1rem}
+      .wa-fab{bottom:1rem;right:4.5rem}
+    }
+
+    /* PRINT STYLES */
+    @media print{
+      .navbar,.hero,.stats-strip,.admin-fab,.wa-fab,.hamburger,.mobile-menu,
+      .admin-overlay,footer,.theme-btn,.toolbar button,
+      .btn-hero,.fade-in{display:none!important}
+      body{background:#fff;color:#000;font-size:11pt}
+      .card{box-shadow:none;border:1px solid #ccc;break-inside:avoid}
+      .card-grid{grid-template-columns:repeat(2,1fr)}
+      .section-title{color:#000;font-size:14pt}
+      a{color:#000;text-decoration:none}
+      section{margin-bottom:1.5rem}
+      .container{padding:.5rem}
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <a href="#" class="logo" aria-label="CS Department home">
+    <span class="logo-primary">NigerPoly · CS</span>
+    <span class="logo-sub">Computer Science</span>
+  </a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#programs">Programmes</a>
+      <a href="#staff">Staff</a>
+      <a href="#projects">Projects</a>
+      <a href="#news">News</a>
+      <a href="#events">Events</a>
+      <a href="#alumni">Alumni</a>
+      <a href="#contact">Contact</a>
+      <a href="https://finalyearprojectsportal.onrender.com" target="_blank" rel="noopener">Projects Portal ↗</a>
+    </div>
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+  <a href="#about" class="mobile-link">🏛 About</a>
+  <a href="#programs" class="mobile-link">📚 Programmes</a>
+  <a href="#staff" class="mobile-link">👥 Staff</a>
+  <a href="#projects" class="mobile-link">🚀 Projects</a>
+  <a href="#news" class="mobile-link">📰 News</a>
+  <a href="#events" class="mobile-link">📅 Events</a>
+  <a href="#alumni" class="mobile-link">🎓 Alumni</a>
+  <a href="#contact" class="mobile-link">📞 Contact</a>
+  <a href="https://finalyearprojectsportal.onrender.com" target="_blank" rel="noopener" class="mobile-link">🔗 Projects Portal ↗</a>
+</div>
+
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-eyebrow"><span>📍</span> CS Niger State Polytechnic, Zungeru · Est. 1999</div>
+      <h1 id="hero-heading">Shaping the <em>Next Generation</em> of Computing Professionals</h1>
+      <p class="hero-lead">Practical, industry-relevant education in software development, networking, and cloud computing — producing graduates ready for the real world and beyond.</p>
+      <div class="hero-ctas">
+        <a href="#programs" class="btn-hero btn-hero-primary">Explore Programmes →</a>
+        <a href="https://nigerpoly.edu.ng/home.php" id="applyNowBtn" target="_blank" rel="noopener" class="btn-hero btn-hero-primary" style="background:#fff;color:var(--navy)">Apply Now ↗</a>
+        <a href="#about" class="btn-hero btn-hero-outline">Our Story</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-card-stack">
+        <div class="hc hc-1"><div class="hc-label">Total Graduates</div><div class="hc-value" id="hc-graduates">500+</div><div class="hc-desc">ND · HND · PGD alumni</div></div>
+        <div class="hc hc-2"><div class="hc-label">Accredited Since</div><div class="hc-value-sm">2008</div><div class="hc-desc">Full NBTE accreditation for ND &amp; HND programmes</div></div>
+        <div class="hc hc-3"><div class="hc-label">Active Programmes</div><div class="hc-value" id="hc-programmes">4</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip" role="region" aria-label="Department statistics">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num" id="stat-graduates">500+</div><div class="stat-label">Graduates Since 1999</div></div>
+    <div class="stat-item"><div class="stat-num" id="stat-programmes">4</div><div class="stat-label">Accredited Programmes</div></div>
+    <div class="stat-item"><div class="stat-num" id="stat-years">27+</div><div class="stat-label">Years of Excellence</div></div>
+    <div class="stat-item"><div class="stat-num" id="stat-accred">100%</div><div class="stat-label">NBTE Accreditation Rate</div></div>
+  </div>
+</div>
+
+<main class="container" id="main">
+
+  <!-- ABOUT -->
+  <section id="about" aria-labelledby="about-heading">
+    <h2 class="section-title" id="about-heading"><span class="section-title-icon" aria-hidden="true">🏛</span>About the Department<span class="title-accent" aria-hidden="true"></span></h2>
+    <p class="section-sub">Our history, leadership, mission and vision</p>
+    <div class="about-grid">
+      <div>
+        <div class="card fade-in">
+          <p style="margin-bottom:.8rem"><strong>Founded</strong> as a Computer Science Unit under the Department of Mathematics &amp; Statistics, the department began offering certificate courses before earning National Diploma (ND) accreditation. In <strong>2008</strong>, the unit was elevated to a full department, with <strong>Dr. Oladele Campbell</strong> as pioneer Head of Department.</p>
+          <p style="margin-bottom:.8rem">Since <strong>1999</strong>, multiple cohorts of ND, HND, and PGD graduates have passed through the department. The specialised HND tracks — <em>Software &amp; Web Development</em> and <em>Networking &amp; Cloud Computing</em> — have successfully graduated their first cohorts.</p>
+          <div style="overflow-x:auto;margin-top:1.2rem">
+            <table class="history-table" aria-label="Heads of Department history">
+              <thead><tr><th scope="col">Tenure</th><th scope="col">Head of Department</th></tr></thead>
+              <tbody>
+                <tr><td>2008 – 2012</td><td>Dr. Oladele O. Campbell <em>(Pioneer HOD)</em></td></tr>
+                <tr><td>2012 – 2016</td><td>Dr. Ibrahim Umar Kontagora <em>(now Rector)</em></td></tr>
+                <tr><td>2016 – 2020</td><td>Mr. Isah Adamu Dagah</td></tr>
+                <tr><td>2020 – 2022</td><td>Dr. Ahmed Isah Baba</td></tr>
+                <tr><td>2022 – present</td><td class="current-hod">Mr. Usman Ubandawaki ✦ Current HOD</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="mission-vision">
+        <div class="mv-card fade-in"><h4>Our Mission</h4><p>To provide practical, industry-relevant computer science education that fosters innovation, research, and entrepreneurial skills — equipping graduates to meet the demands of a digital economy.</p></div>
+        <div class="mv-card fade-in"><h4>Our Vision</h4><p>To be a centre of excellence in computing education, producing globally competitive and locally relevant graduates who drive technological development across Nigeria.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMMES -->
+  <section id="programs" aria-labelledby="programs-heading">
+    <h2 class="section-title" id="programs-heading"><span class="section-title-icon" aria-hidden="true">📚</span>Our Programmes<span class="title-accent" aria-hidden="true"></span></h2>
+    <p class="section-sub">Four accredited pathways to a career in computing</p>
+    <div class="card-grid">
+      <div class="card prog-card fade-in"><div class="prog-icon" aria-hidden="true">🎓</div><h3>National Diploma (ND)</h3><div class="prog-duration">⏱ 2 Years · Full-time</div><p class="card p" style="margin-bottom:.8rem">A foundational programme covering core computing disciplines with practical hands-on training.</p><ul class="prog-modules"><li>Introduction to Programming (Python, C)</li><li>Web Development Fundamentals</li><li>Computer Hardware &amp; PC Maintenance</li><li>Database Systems &amp; Application Packages</li><li>Networking Essentials</li></ul><p class="prog-outcomes"><strong>Career pathways:</strong> IT support, web developer, data entry, junior programmer</p></div>
+      <div class="card prog-card fade-in"><div class="prog-icon" aria-hidden="true">💻</div><h3>HND Software &amp; Web Development</h3><div class="prog-duration">⏱ 2 Years · After ND</div><p class="card p" style="margin-bottom:.8rem">A specialist track focused on modern full-stack development and software engineering practices.</p><ul class="prog-modules"><li>Full-Stack Development (React, Node.js)</li><li>Software Engineering &amp; Architecture</li><li>Mobile App Development</li><li>UI/UX Design Principles</li><li>Agile &amp; DevOps Practices</li></ul><p class="prog-outcomes"><strong>Career pathways:</strong> full-stack developer, software engineer, product engineer</p></div>
+      <div class="card prog-card fade-in"><div class="prog-icon" aria-hidden="true">☁️</div><h3>HND Networking &amp; Cloud Computing</h3><div class="prog-duration">⏱ 2 Years · After ND</div><p class="card p" style="margin-bottom:.8rem">A specialist track covering enterprise networking, cloud infrastructure, and cybersecurity.</p><ul class="prog-modules"><li>Cloud Platforms (AWS, Azure basics)</li><li>Network Design &amp; Administration</li><li>Cybersecurity Fundamentals</li><li>Virtualisation &amp; Containers</li><li>IT Infrastructure Management</li></ul><p class="prog-outcomes"><strong>Career pathways:</strong> network engineer, cloud administrator, security analyst</p></div>
+      <div class="card prog-card fade-in"><div class="prog-icon" aria-hidden="true">🔬</div><h3>Postgraduate Diploma (PGD)</h3><div class="prog-duration">⏱ 1 Year · After HND/BSc</div><p class="card p" style="margin-bottom:.8rem">An advanced research-oriented programme for HND holders seeking to deepen knowledge.</p><ul class="prog-modules"><li>Advanced Algorithms &amp; Data Structures</li><li>Research Methodology</li><li>Machine Learning Foundations</li><li>Systems Analysis &amp; Design</li><li>Independent Research Project</li></ul><p class="prog-outcomes"><strong>Career pathways:</strong> research roles, academia, senior technical positions</p></div>
+    </div>
+  </section>
+
+  <!-- STAFF -->
+  <section id="staff" aria-labelledby="staff-heading">
+    <h2 class="section-title" id="staff-heading"><span class="section-title-icon" aria-hidden="true">👥</span>Academic Staff<span class="title-accent" aria-hidden="true"></span></h2>
+    <p class="section-sub">Meet our faculty and department leadership</p>
+    <div class="toolbar" role="search" aria-label="Staff search and filter">
+      <input type="search" id="staffSearch" class="input" placeholder="Search by name, role, qualification…" aria-label="Search staff">
+      <select id="staffFilter" class="input" aria-label="Filter staff by category">
+        <option value="all">All Staff</option>
+        <option value="leadership">Leadership</option>
+        <option value="academic">Academic Staff</option>
+        <option value="alumni">Alumni Staff</option>
+      </select>
+    </div>
+    <div id="staffSkeleton" class="card-grid" aria-hidden="true">
+      <div class="skeleton-card"><div class="skeleton sk-avatar"></div><div class="sk-lines"><div class="skeleton sk-line w-75"></div><div class="skeleton sk-line w-50"></div><div class="skeleton sk-line w-90"></div><div class="skeleton sk-line w-40"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton sk-avatar"></div><div class="sk-lines"><div class="skeleton sk-line w-75"></div><div class="skeleton sk-line w-50"></div><div class="skeleton sk-line w-90"></div><div class="skeleton sk-line w-40"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton sk-avatar"></div><div class="sk-lines"><div class="skeleton sk-line w-75"></div><div class="skeleton sk-line w-50"></div><div class="skeleton sk-line w-90"></div><div class="skeleton sk-line w-40"></div></div></div>
+    </div>
+    <div id="staffGrid" class="card-grid" style="display:none" role="list" aria-live="polite" aria-label="Staff directory"></div>
+    <div id="staffEmpty" class="empty" style="display:none" role="status">No staff found matching your search.</div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" aria-labelledby="projects-heading">
+    <h2 class="section-title" id="projects-heading"><span class="section-title-icon" aria-hidden="true">🚀</span>Student Projects<span class="title-accent" aria-hidden="true"></span></h2>
+    <p class="section-sub">Highlighted final-year projects — <a href="https://finalyearprojectsportal.onrender.com" target="_blank" rel="noopener" style="color:var(--blue-lt)">view all on the Projects Portal ↗</a></p>
+    <div class="card-grid">
+      <div class="card project-card fade-in"><div class="project-tag">HND Software &amp; Web Dev · 2025</div><h3>Smart Campus Attendance System</h3><p class="project-student">👤 Final Year Students, HND SWD Cohort 1</p><p class="card p">A face-recognition–based attendance management system integrated with the student records portal to automate marking and generate real-time reports.</p><div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">OpenCV</span><span class="tech-tag">Flask</span><span class="tech-tag">SQLite</span></div></div>
+      <div class="card project-card fade-in"><div class="project-tag">HND Networking &amp; Cloud · 2025</div><h3>Secure Campus LAN &amp; Firewall Design</h3><p class="project-student">👤 Final Year Students, HND NCC Cohort 1</p><p class="card p">A complete network redesign proposal and simulation covering VLAN segmentation, firewall policy, and cost-effective cloud backup integration.</p><div class="project-tech"><span class="tech-tag">Cisco Packet Tracer</span><span class="tech-tag">pfSense</span><span class="tech-tag">AWS S3</span></div></div>
+      <div class="card project-card fade-in"><div class="project-tag">ND Computer Science · 2024</div><h3>Departmental Result Checker App</h3><p class="project-student">👤 ND Final Year Student</p><p class="card p">A mobile-first web application enabling students to check semester results via student ID, with automated GPA computation and downloadable transcripts.</p><div class="project-tech"><span class="tech-tag">HTML/CSS</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Google Sheets API</span></div></div>
+    </div>
+  </section>
+
+  <!-- NEWS & NOTICES -->
+  <section id="news" aria-labelledby="news-heading">
+    <h2 class="section-title" id="news-heading"><span class="section-title-icon" aria-hidden="true">📰</span>News &amp; Notices<span class="title-accent" aria-hidden="true"></span></h2>
+    <p class="section-sub">Latest announcements, events and departmental notices</p>
+    <div class="toolbar" role="search" aria-label="News search and filter">
+      <input type="search" id="newsSearch" class="input" placeholder="Search news and notices…" aria-label="Search news">
+      <select id="newsFilter" class="input" aria-label="Filter by category">
+        <option value="all">All Categories</option>
+        <option value="news">News</option>
+        <option value="notice">Notices</option>
+        <option value="event">Events</option>
+      </select>
+    </div>
+    <div id="newsSkeleton" class="card-grid" aria-hidden="true">
+      <div class="card"><div class="skeleton sk-line w-90" style="height:18px;margin-bottom:.7rem"></div><div class="skeleton sk-line w-40" style="margin-bottom:.7rem"></div><div class="skeleton sk-line w-75"></div><div class="skeleton sk-line w-90" style="margin-top:.4rem"></div></div>
+      <div class="card"><div class="skeleton sk-line w-75" style="height:18px;margin-bottom:.7rem"></div><div class="skeleton sk-line w-40" style="margin-bottom:.7rem"></div><div class="skeleton sk-line w-90"></div><div class="skeleton sk-line w-50" style="margin-top:.4rem"></div></div>
+    </div>
+    <div id="newsGrid" class="card-grid" style="display:none" aria-live="polite"></div>
+    <div id="newsEmpty" class="empty" style="display:none" role="status">No announcements found.</div>
+  </section>
+
+  <!-- DOCUMENTS -->
+  <section id="documents" aria-labelledby="docs-heading">
+    <h2 class="section-title" id="docs-heading"><span class="section-title-icon" aria-hidden="true">📁</span>Documents &amp; Resources<span class="title-accent" aria-hidden="true"></span></h2>
+    <p class="section-sub">Course outlines, forms, and departmental publications</p>
+    <div id="docsSkeleton" class="card-grid" aria-hidden="true">
+      <div class="card"><div class="skeleton sk-line w-75" style="height:18px;margin-bottom:.7rem"></div><div class="skeleton sk-line w-90" style="margin-bottom:1rem"></div><div class="skeleton sk-line w-40" style="height:32px;border-radius:2rem"></div></div>
+      <div class="card"><div class="skeleton sk-line w-90" style="height:18px;margin-bottom:.7rem"></div><div class="skeleton sk-line w-75" style="margin-bottom:1rem"></div><div class="skeleton sk-line w-40" style="height:32px;border-radius:2rem"></div></div>
+    </div>
+    <div id="docsGrid" class="card-grid" style="display:none" aria-live="polite"></div>
+    <div id="docsEmpty" class="empty" style="display:none" role="status">No documents available yet.</div>
+  </section>
+
+  <!-- UPCOMING EVENTS -->
+  <section id="events" aria-labelledby="events-heading">
+    <h2 class="section-title" id="events-heading"><span class="section-title-icon" aria-hidden="true">📅</span>Upcoming Events<span class="title-accent" aria-hidden="true"></span></h2>
+    <p class="section-sub">Lectures, exams, deadlines and departmental events</p>
+    <div id="eventsSkeleton" class="card-grid" aria-hidden="true">
+      <div class="card"><div class="skeleton sk-line w-75" style="height:18px;margin-bottom:.7rem"></div><div class="skeleton sk-line w-40" style="margin-bottom:.5rem"></div><div class="skeleton sk-line w-90"></div></div>
+      <div class="card"><div class="skeleton sk-line w-90" style="height:18px;margin-bottom:.7rem"></div><div class="skeleton sk-line w-50" style="margin-bottom:.5rem"></div><div class="skeleton sk-line w-75"></div></div>
+    </div>
+    <div id="eventsGrid" class="card-grid" style="display:none" aria-live="polite"></div>
+    <div id="eventsEmpty" class="empty" style="display:none">No upcoming events scheduled. Check back soon.</div>
+  </section>
+
+  <!-- ALUMNI -->
+  <section id="alumni" aria-labelledby="alumni-heading">
+    <h2 class="section-title" id="alumni-heading"><span class="section-title-icon" aria-hidden="true">🎓</span>Alumni Network<span class="title-accent" aria-hidden="true"></span></h2>
+    <p class="section-sub">Connect with the department, support accreditation, and mentor the next generation</p>
+    <div class="alumni-form">
+      <h3 style="font-family:var(--font-display);font-size:1.4rem;margin-bottom:.4rem">Join Our Alumni Register</h3>
+      <p style="color:var(--muted);font-size:.9rem">Help us maintain accreditation records and build mentorship opportunities. Your information stays within the department.</p>
+      <form id="alumniRegistrationForm" novalidate>
+        <div class="form-grid">
+          <input type="text"   id="alumName"      class="input" placeholder="Full name *"         required aria-label="Full name">
+          <input type="number" id="alumYear"      class="input" placeholder="Graduation year *"   required aria-label="Graduation year" min="1999" max="2030">
+          <select              id="alumProgramme" class="input"                                    required aria-label="Programme">
+            <option value="">Select programme *</option>
+            <option>Certificate in Computer Science</option>
+            <option>ND Computer Science</option>
+            <option>HND Computer Science</option>
+            <option>HND Software &amp; Web Development</option>
+            <option>HND Networking &amp; Cloud Computing</option>
+            <option>PGD Computer Science</option>
+          </select>
+          <input type="email"  id="alumEmail"     class="input" placeholder="Email address *"     required aria-label="Email address">
+          <input type="text"   id="alumJob"       class="input" placeholder="Current job / organisation" aria-label="Current job">
+          <input type="tel"    id="alumPhone"     class="input" placeholder="Phone (optional)"    aria-label="Phone number">
+          <div class="full"><textarea id="alumMessage" class="input" rows="3" style="width:100%;border-radius:var(--radius-sm);resize:vertical" placeholder="Mentoring interests, skills you can share, or suggestions" aria-label="Message"></textarea></div>
+          <div class="full"><button type="submit" class="btn" id="alumSubmitBtn">Register as Alumni →</button></div>
+        </div>
+        <div id="formSuccess" class="alert alert-success" style="display:none" role="alert">✅ Thank you! Your record has been submitted. We will be in touch.</div>
+        <div id="formError"   class="alert alert-error"   style="display:none" role="alert">❌ Submission failed. Please try again or contact the department directly.</div>
+        <p class="form-note">* Required fields. Stored securely in the departmental alumni database.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section id="calendar" aria-labelledby="calendar-heading">
+    <h2 class="section-title" id="calendar-heading"><span class="section-title-icon" aria-hidden="true">🗓</span>Academic Calendar<span class="title-accent" aria-hidden="true"></span></h2>
+    <p class="section-sub">Important dates, exam schedules and departmental events</p>
+    <div class="calendar-wrap">
+      <iframe src="https://calendar.google.com/calendar/embed?src=05fc6bf94979aecf38b72fe58c684298bd79f8a16bd44b1cba54b7887c20d869%40group.calendar.google.com&ctz=Africa%2FLagos" style="border:0;width:100%;height:420px;" frameborder="0" scrolling="no" title="Department Academic Calendar"></iframe>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <h2 class="section-title" id="contact-heading"><span class="section-title-icon" aria-hidden="true">📞</span>Contact &amp; Location<span class="title-accent" aria-hidden="true"></span></h2>
+    <p class="section-sub">We'd love to hear from prospective students, employers, and partners</p>
+    <div class="card-grid">
+      <div class="card fade-in"><div class="contact-icon" aria-hidden="true">🏢</div><h3>Department Office</h3><div class="contact-info"><p><span id="contact-address">College of Science and Technology, Niger State Polytechnic, Zungeru</span></p><p style="margin-top:.8rem">📧 <a href="mailto:info@csnigerpoly.com" id="contact-email-link"><span id="contact-email-text">info@csnigerpoly.com</span></a><br>📞 <a href="tel:+2348067655670" id="contact-phone-link"><span id="contact-phone-text">+2348067655670</span></a></p></div></div>
+      <div class="card fade-in"><div class="contact-icon" aria-hidden="true">🕐</div><h3>Office Hours</h3><div class="contact-info"><p><strong>Monday – Friday</strong><br><span id="contact-hours">8:00 am – 4:00 pm</span></p><p style="margin-top:.6rem">Closed on public holidays and during semester breaks.</p></div></div>
+      <div class="card fade-in"><div class="contact-icon" aria-hidden="true">🔗</div><h3>Quick Links</h3><div class="contact-info"><p><a href="https://finalyearprojectsportal.onrender.com" target="_blank" rel="noopener">Final Year Projects Portal ↗</a></p><p><a href="mailto:info@csnigerpoly.com">Email the Department</a></p><p><a href="#alumni">Join Alumni Network</a></p><p><a href="#documents">Download Forms &amp; Docs</a></p></div></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- WHATSAPP FAB -->
+<a href="https://wa.me/2348135711600?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20the%20CS%20Department%20at%20Niger%20State%20Polytechnic%2C%20Zungeru." target="_blank" rel="noopener" id="waFab" class="wa-fab" aria-label="Chat with us on WhatsApp" title="WhatsApp the Department">💬</a>
+
+<!-- ADMIN FAB -->
+<button class="admin-fab" id="adminFab" aria-label="Open admin panel" title="Staff Admin Panel">⚙️</button>
+
+<!-- ADMIN PANEL -->
+<div class="admin-overlay" id="adminOverlay" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+  <div class="admin-panel">
+    <div class="admin-header">
+      <div><h2 id="adminTitle">Staff Admin Panel</h2><p>CS Dept · Niger State Polytechnic, Zungeru</p></div>
+      <button class="admin-close" id="adminClose" aria-label="Close admin panel">✕</button>
+    </div>
+    <div class="admin-body">
+      <div id="adminLogin" class="admin-login">
+        <p>Enter the department admin password to manage calendar events.</p>
+        <div id="adminLoginAlert" class="admin-alert admin-alert-error" style="display:none">Incorrect password. Please try again.</div>
+        <div class="admin-login-row">
+          <input type="password" id="adminPassword" class="input" placeholder="Admin password" aria-label="Admin password" style="flex:1">
+          <button class="btn" id="adminLoginBtn">Login</button>
+        </div>
+      </div>
+      <div id="adminMain" style="display:none">
+        <div class="admin-tabs" role="tablist">
+          <button class="admin-tab active" id="tabAdd" role="tab" aria-selected="true">Add Event</button>
+          <button class="admin-tab" id="tabList" role="tab" aria-selected="false">Manage Events</button>
+        </div>
+        <div id="panelAdd" role="tabpanel">
+          <div id="addAlert" style="display:none"></div>
+          <div class="admin-form-grid">
+            <div class="field-wrap full"><div class="field-label">Event Title *</div><input type="text" id="evTitle" class="input" placeholder="e.g. ND Matriculation Ceremony" style="width:100%"></div>
+            <div class="field-wrap full"><div class="field-label">Category</div>
+              <select id="evCategory" class="input" style="width:100%">
+                <option value="event">General Event</option>
+                <option value="exam">Exam / Test</option>
+                <option value="lecture">Lecture / Seminar</option>
+                <option value="deadline">Deadline</option>
+                <option value="holiday">Holiday / Break</option>
+                <option value="notice">Notice</option>
+              </select>
+            </div>
+            <div class="field-wrap"><div class="field-label">Start Date *</div><input type="date" id="evStartDate" class="input" style="width:100%"></div>
+            <div class="field-wrap"><div class="field-label">Start Time (WAT)</div><input type="time" id="evStartTime" class="input" style="width:100%"></div>
+            <div class="field-wrap"><div class="field-label">End Date</div><input type="date" id="evEndDate" class="input" style="width:100%"></div>
+            <div class="field-wrap"><div class="field-label">End Time (WAT)</div><input type="time" id="evEndTime" class="input" style="width:100%"></div>
+            <div class="field-wrap full"><div class="field-label">Location</div><input type="text" id="evLocation" class="input" placeholder="Niger State Polytechnic, Zungeru" style="width:100%"></div>
+            <div class="field-wrap full"><div class="field-label">Description</div><textarea id="evDescription" class="input" rows="3" placeholder="Additional details…" style="width:100%;border-radius:var(--radius-sm);resize:vertical"></textarea></div>
+            <div class="full" style="display:flex;gap:.8rem;flex-wrap:wrap">
+              <button class="btn" id="evSubmitBtn">Add to Calendar →</button>
+              <button class="btn btn-outline" id="evClearBtn" type="button">Clear Form</button>
+            </div>
+          </div>
+        </div>
+        <div id="panelList" role="tabpanel" style="display:none">
+          <div id="listAlert" style="display:none"></div>
+          <div id="eventsList"><div class="admin-empty">Loading events…</div></div>
+          <button class="btn btn-outline" id="refreshEventsBtn" style="margin-top:.5rem">↻ Refresh List</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div style="font-family:var(--font-display);font-size:1.1rem;color:#fff;margin-bottom:.4rem">NigerPoly · CS</div>
+      <div style="color:rgba(255,255,255,.4);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em">Department of Computer Science</div>
+      <p style="margin-top:.8rem;font-size:.8rem">Niger State Polytechnic, Zungeru<br>Producing globally competitive graduates since 1999.</p>
+    </div>
+    <div class="footer-col"><h4>Programmes</h4><a href="#programs">National Diploma (ND)</a><a href="#programs">HND Software &amp; Web Dev</a><a href="#programs">HND Networking &amp; Cloud</a><a href="#programs">Postgraduate Diploma</a></div>
+    <div class="footer-col"><h4>Department</h4><a href="#about">Our History</a><a href="#staff">Academic Staff</a><a href="#events">Upcoming Events</a><a href="#alumni">Alumni Network</a><a href="#contact">Contact Us</a><a href="https://finalyearprojectsportal.onrender.com" target="_blank" rel="noopener">Projects Portal ↗</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Niger State Polytechnic, Zungeru. All rights reserved.</span>
+    <span class="footer-credit">Designed &amp; developed by Dr. Oladele Campbell · Data powered by Google Sheets</span>
+  </div>
+</footer>
+
+<script>
+// ===== DARK MODE =====
+const themeBtn = document.getElementById("themeToggle");
+const html = document.documentElement;
+const saved = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light");
+html.dataset.theme = saved;
+themeBtn.textContent = saved === "dark" ? "☀️" : "🌙";
+themeBtn.addEventListener("click", () => {
+  const next = html.dataset.theme === "dark" ? "light" : "dark";
+  html.dataset.theme = next;
+  themeBtn.textContent = next === "dark" ? "☀️" : "🌙";
+  localStorage.setItem("theme", next);
+});
+
+// ===== CONFIG =====
+const BASE_URL = "https://script.google.com/macros/s/AKfycbwh97f3osbUWcACO5C76oVfMdViCNZAje-4YFVLNNRhBjjCRqUb3qK_uqWIxNOm9b0UOg/exec";
+const CONFIG = {
+  staffEndpoint:    BASE_URL + "?sheet=staff",
+  newsEndpoint:     BASE_URL + "?sheet=news",
+  noticesEndpoint:  BASE_URL + "?sheet=notices",
+  docsEndpoint:     BASE_URL + "?sheet=documents",
+  eventsEndpoint:   BASE_URL + "?sheet=events",
+  settingsEndpoint: BASE_URL + "?sheet=settings",
+  postEndpoint:     BASE_URL,
+  useRemote: true
+};
+
+// Settings cache — populated on load
+let S = {};
+
+function applySettings(data) {
+  // Convert array of {key,value} into a plain object
+  data.forEach(row => { S[row.key] = String(row.value||""); });
+
+  // Stats strip
+  setText("stat-graduates",  S.graduates_count   || "500+");
+  setText("stat-programmes", S.programmes_count  || "4");
+  setText("stat-years",      S.years_excellence  || "27+");
+  setText("stat-accred",     S.accreditation_rate|| "100%");
+
+  // Hero floating cards
+  setText("hc-graduates",    S.graduates_count   || "500+");
+  setText("hc-programmes",   S.programmes_count  || "4");
+
+  // Apply Now button
+  const applyBtn = document.getElementById("applyNowBtn");
+  if (applyBtn && S.apply_url) applyBtn.href = S.apply_url;
+
+  // WhatsApp FAB
+  const waBtn = document.getElementById("waFab");
+  if (waBtn && S.whatsapp_number) {
+    const num = S.whatsapp_number.replace(/[^0-9]/g,"");
+    waBtn.href = "https://wa.me/" + num + "?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20the%20CS%20Department%20at%20Niger%20State%20Polytechnic%2C%20Zungeru.";
+    waBtn.title = "WhatsApp: " + S.whatsapp_number;
+  }
+
+  // Contact section
+  setText("contact-email-text",  S.dept_email   || "");
+  setHref("contact-email-link",  "mailto:" + (S.dept_email||""));
+  setText("contact-phone-text",  S.dept_phone   || "");
+  setHref("contact-phone-link",  "tel:" + (S.dept_phone||"").replace(/[^0-9+]/g,""));
+  setText("contact-address",     S.dept_address || "");
+  setText("contact-hours",       S.office_hours || "");
+}
+
+function setText(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+function setHref(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.href = val;
+}
+
+let staffData=[], newsData=[], noticesData=[], docsData=[];
+
+function esc(str) {
+  if (!str) return "";
+  return String(str).replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+}
+
+async function fetchJSON(url) {
+  try {
+    const res = await fetch(url, {cache:"no-store"});
+    const json = await res.json();
+    return json.data || [];
+  } catch(err) {
+    console.warn("Fetch error:", url, err);
+    return [];
+  }
+}
+
+function hideSkeleton(skId, gridId) {
+  const sk = document.getElementById(skId);
+  const gr = document.getElementById(gridId);
+  if (sk) { sk.style.display="none"; sk.setAttribute("aria-hidden","true"); }
+  if (gr) gr.style.display="grid";
+}
+
+// ===== LOAD ALL DATA =====
+async function loadAllData() {
+  const [staff, news, notices, docs, events, settings] = await Promise.all([
+    fetchJSON(CONFIG.staffEndpoint),
+    fetchJSON(CONFIG.newsEndpoint),
+    fetchJSON(CONFIG.noticesEndpoint),
+    fetchJSON(CONFIG.docsEndpoint),
+    fetchJSON(CONFIG.eventsEndpoint),
+    fetchJSON(CONFIG.settingsEndpoint)
+  ]);
+  staffData=staff; newsData=news; noticesData=notices; docsData=docs;
+  applySettings(settings);
+  hideSkeleton("staffSkeleton",  "staffGrid");
+  hideSkeleton("newsSkeleton",   "newsGrid");
+  hideSkeleton("docsSkeleton",   "docsGrid");
+  hideSkeleton("eventsSkeleton", "eventsGrid");
+  renderStaff();
+  renderNews();
+  renderDocs();
+  renderEvents(events);
+}
+
+// ===== RENDER STAFF =====
+function renderStaff() {
+  const searchTerm = (document.getElementById("staffSearch")?.value||"").toLowerCase();
+  const filter = document.getElementById("staffFilter")?.value||"all";
+  const filtered = staffData.filter(s => {
+    if (String(s.status||"").toLowerCase() !== "active") return false;
+    const q = ((s.name||"")+" "+(s.role||"")+" "+(s.qualification||"")).toLowerCase();
+    if (!q.includes(searchTerm)) return false;
+    if (filter==="leadership") return String(s.category||"").toLowerCase()==="leadership";
+    if (filter==="academic")   return String(s.category||"").toLowerCase()==="academic";
+    if (filter==="alumni")     return s.alumni===true||String(s.alumni).toLowerCase()==="true";
+    return true;
+  });
+  const grid=document.getElementById("staffGrid");
+  const empty=document.getElementById("staffEmpty");
+  if (!grid) return;
+  if (filtered.length===0) { grid.innerHTML=""; empty.style.display="block"; return; }
+  empty.style.display="none";
+  grid.innerHTML = filtered.map(s => {
+    const isAlum = s.alumni===true||String(s.alumni).toLowerCase()==="true";
+    const avatar = s.photo_url && String(s.photo_url).trim()
+      ? `<img src="${esc(s.photo_url)}" alt="${esc(s.name)}" class="staff-photo" loading="lazy">`
+      : `<div class="avatar-icon" aria-hidden="true">👤</div>`;
+    return `<article class="card staff-card" role="listitem">
+      <div style="padding:0;background:none;flex-shrink:0">${avatar}</div>
+      <div class="staff-info">
+        <h3>${esc(s.name)}</h3>
+        <div class="role-badge">${esc(s.role||"Staff")}</div>
+        ${isAlum ? '<div class="role-badge alumni-badge">🎓 Alumni</div>' : ''}
+        ${s.qualification ? `<div class="staff-qual">${esc(s.qualification)}</div>` : ''}
+        ${s.email ? `<div class="staff-email"><a href="mailto:${esc(s.email)}">${esc(s.email)}</a></div>` : ''}
+        ${s.phone ? `<div class="staff-phone">📞 ${esc(s.phone)}</div>` : ''}
+      </div>
+    </article>`;
+  }).join("");
+}
+
+// ===== RENDER NEWS =====
+function renderNews() {
+  const searchTerm = (document.getElementById("newsSearch")?.value||"").toLowerCase();
+  const filter = document.getElementById("newsFilter")?.value||"all";
+  const now = new Date();
+  let all = [
+    ...newsData.map(n=>({...n,_src:"news"})),
+    ...noticesData.map(n=>({...n,_src:"notice"}))
+  ].filter(item => {
+    if (String(item.status||"").toLowerCase() !== "published") return false;
+    if (filter!=="all" && String(item.category||"").toLowerCase() !== filter) return false;
+    const q = ((item.title||"")+" "+(item.summary||"")).toLowerCase();
+    if (searchTerm && !q.includes(searchTerm)) return false;
+    if (item.expiry_date && new Date(item.expiry_date) < now) return false;
+    return true;
+  }).sort((a,b) => new Date(b.publish_date||0) - new Date(a.publish_date||0));
+
+  const grid=document.getElementById("newsGrid");
+  const empty=document.getElementById("newsEmpty");
+  if (!grid) return;
+  if (all.length===0) { grid.innerHTML=""; empty.style.display="block"; return; }
+  empty.style.display="none";
+  grid.innerHTML = all.map(item => `
+    <article class="card">
+      <h3>${esc(item.title)}</h3>
+      <div class="news-meta">
+        <span class="category-badge">${esc(item.category||"news")}</span>
+        ${item.publish_date ? `<time datetime="${esc(String(item.publish_date))}">📅 ${formatShortDate(String(item.publish_date))}</time>` : ""}
+      </div>
+      <p>${esc(item.summary||"")}</p>
+      ${item.body ? `<details><summary>Read more</summary><p>${esc(item.body)}</p></details>` : ""}
+    </article>`).join("");
+}
+
+// ===== RENDER DOCUMENTS =====
+function renderDocs() {
+  const filtered = docsData.filter(d => String(d.status||"").toLowerCase()==="published");
+  const grid=document.getElementById("docsGrid");
+  const empty=document.getElementById("docsEmpty");
+  if (!grid) return;
+  if (filtered.length===0) { grid.innerHTML=""; empty.style.display="block"; return; }
+  empty.style.display="none";
+  grid.innerHTML = filtered.map(doc => {
+    const isPdf = doc.type && doc.type.toLowerCase()==="pdf";
+    return `<article class="card">
+      <h3>${esc(doc.title)}</h3>
+      <p>${esc(doc.summary||"")}</p>
+      <a href="${esc(doc.url)}" class="btn btn-outline" target="_blank" rel="noopener" ${isPdf?"download":""} style="margin-top:1rem">${isPdf?"Download PDF":"Open "+esc(doc.type||"document")}</a>
+    </article>`;
+  }).join("");
+}
+
+// ===== RENDER EVENTS =====
+function renderEvents(events) {
+  const grid=document.getElementById("eventsGrid");
+  const empty=document.getElementById("eventsEmpty");
+  if (!grid) return;
+  if (!events||events.length===0) {
+    grid.innerHTML="";
+    empty.innerHTML="No upcoming events scheduled. Check back soon or <a href='https://wa.me/2348135711600' target='_blank' style='color:var(--blue-lt)'>message us on WhatsApp</a>.";
+    empty.style.display="block";
+    return;
+  }
+  empty.style.display="none";
+
+  const catColors = {
+    exam:    {bg:"#fee2e2",color:"#991b1b"},
+    lecture: {bg:"#dbeafe",color:"#1e40af"},
+    deadline:{bg:"#fef3c7",color:"#92400e"},
+    holiday: {bg:"#dcfce7",color:"#166534"},
+    notice:  {bg:"#f3e8ff",color:"#6b21a8"},
+    event:   {bg:"#e0f2fe",color:"#0369a1"}
+  };
+
+  function countdownBadge(startDateStr) {
+    if (!startDateStr||startDateStr.trim()==="") return "";
+    try {
+      const now = new Date();
+      const start = new Date(startDateStr);
+      if (isNaN(start)) return "";
+      const diffMs = start - now;
+      const diffDays = Math.ceil(diffMs / (1000*60*60*24));
+      if (diffDays < 0) return "";
+      if (diffDays === 0) return `<span class="countdown-badge countdown-urgent">⚡ Today</span>`;
+      if (diffDays === 1) return `<span class="countdown-badge countdown-urgent">⚠️ Tomorrow</span>`;
+      if (diffDays <= 3) return `<span class="countdown-badge countdown-urgent">🔴 In ${diffDays} days</span>`;
+      if (diffDays <= 7) return `<span class="countdown-badge countdown-soon">🟡 In ${diffDays} days</span>`;
+      return `<span class="countdown-badge countdown-normal">📆 In ${diffDays} days</span>`;
+    } catch { return ""; }
+  }
+
+  grid.innerHTML = events.map(ev => {
+    const cat = String(ev.category||"event").toLowerCase();
+    const colors = catColors[cat]||catColors.event;
+    const dateLabel = formatShortDate(String(ev.start_date||""));
+    const timeLabel = formatWAT(String(ev.start_time||""));
+    const endTime   = formatWAT(String(ev.end_time||""));
+    const countdown = countdownBadge(String(ev.start_date||""));
+    return `<article class="card event-card-inner fade-in">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem">
+        <span class="event-badge" style="background:${colors.bg};color:${colors.color}">${esc(cat)}</span>
+        <span class="event-date-label">${dateLabel}</span>
+      </div>
+      <h3 style="font-size:1rem;margin-bottom:.4rem">${esc(ev.title)}</h3>
+      ${countdown}
+      ${timeLabel ? `<p class="event-time">🕐 ${timeLabel}${endTime?" – "+endTime:""}</p>` : ""}
+      ${ev.location ? `<p class="event-location">📍 ${esc(String(ev.location))}</p>` : ""}
+      ${ev.description ? `<p class="event-desc">${esc(String(ev.description))}</p>` : ""}
+    </article>`;
+  }).join("");
+
+  grid.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+}
+
+// ===== DATE / TIME HELPERS =====
+function formatShortDate(str) {
+  if (!str||str.trim()==="") return "";
+  try {
+    const d = new Date(str);
+    if (isNaN(d)) return str;
+    return d.toLocaleDateString("en-GB", {weekday:"short",day:"numeric",month:"short",year:"numeric",timeZone:"Africa/Lagos"});
+  } catch { return str; }
+}
+
+function formatWAT(str) {
+  if (!str||str.trim()==="") return "";
+  try {
+    let h, m;
+    if (str.includes("T")) {
+      // ISO from Sheets e.g. "1899-12-30T09:46:25.000Z"
+      const d = new Date(str);
+      h = d.getUTCHours();
+      m = d.getUTCMinutes();
+    } else if (str.includes(":")) {
+      [h,m] = str.split(":").map(Number);
+    } else { return ""; }
+    const d = new Date(2000,0,1,h,m,0,0);
+    return d.toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit",hour12:true});
+  } catch { return ""; }
+}
+
+// ===== SEARCH LISTENERS =====
+document.getElementById("staffSearch")?.addEventListener("input", renderStaff);
+document.getElementById("staffFilter")?.addEventListener("change", renderStaff);
+document.getElementById("newsSearch")?.addEventListener("input", renderNews);
+document.getElementById("newsFilter")?.addEventListener("change", renderNews);
+
+// ===== ALUMNI FORM =====
+const alumniForm = document.getElementById("alumniRegistrationForm");
+const successDiv = document.getElementById("formSuccess");
+const errorDiv   = document.getElementById("formError");
+const submitBtn  = document.getElementById("alumSubmitBtn");
+alumniForm?.addEventListener("submit", async e => {
+  e.preventDefault();
+  const data = {
+    fullname:        document.getElementById("alumName").value.trim(),
+    graduation_year: document.getElementById("alumYear").value.trim(),
+    programme:       document.getElementById("alumProgramme").value,
+    email:           document.getElementById("alumEmail").value.trim(),
+    current_job:     document.getElementById("alumJob").value.trim(),
+    phone:           document.getElementById("alumPhone").value.trim(),
+    message:         document.getElementById("alumMessage").value.trim()
+  };
+  if (!data.fullname||!data.graduation_year||!data.programme||!data.email) {
+    alert("Please fill in all required fields (marked with *)."); return;
+  }
+  successDiv.style.display="none"; errorDiv.style.display="none";
+  submitBtn.disabled=true; submitBtn.textContent="Submitting…";
+  try {
+    await fetch(CONFIG.postEndpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(data)});
+    successDiv.style.display="block";
+    alumniForm.reset();
+    setTimeout(()=>{successDiv.style.display="none"},5000);
+  } catch {
+    errorDiv.style.display="block";
+    setTimeout(()=>{errorDiv.style.display="none"},5000);
+  } finally {
+    submitBtn.disabled=false; submitBtn.textContent="Register as Alumni →";
+  }
+});
+
+// ===== FADE-IN =====
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target);} });
+},{threshold:0.1});
+document.querySelectorAll(".fade-in").forEach((el,i) => {
+  el.style.transitionDelay = i*0.06+"s";
+  observer.observe(el);
+});
+
+// ===== ACTIVE NAV =====
+const sections = document.querySelectorAll("section[id]");
+const navLinks  = document.querySelectorAll(".nav-links a[href^='#']");
+const navObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => {
+        a.removeAttribute("aria-current");
+        if (a.getAttribute("href")==="#"+e.target.id) a.setAttribute("aria-current","page");
+      });
+    }
+  });
+},{rootMargin:"-50% 0px -50% 0px"});
+sections.forEach(s => navObs.observe(s));
+
+// ===== ADMIN PANEL =====
+const adminFab      = document.getElementById("adminFab");
+const adminOverlay  = document.getElementById("adminOverlay");
+const adminClose    = document.getElementById("adminClose");
+const adminLogin    = document.getElementById("adminLogin");
+const adminMain     = document.getElementById("adminMain");
+const adminLoginBtn = document.getElementById("adminLoginBtn");
+const adminPassword = document.getElementById("adminPassword");
+const adminLoginAlert = document.getElementById("adminLoginAlert");
+const tabAdd    = document.getElementById("tabAdd");
+const tabList   = document.getElementById("tabList");
+const panelAdd  = document.getElementById("panelAdd");
+const panelList = document.getElementById("panelList");
+const evSubmitBtn = document.getElementById("evSubmitBtn");
+const evClearBtn  = document.getElementById("evClearBtn");
+const refreshBtn  = document.getElementById("refreshEventsBtn");
+let editingEventId = null;
+
+adminFab.addEventListener("click", ()=>{ adminOverlay.classList.add("open"); adminPassword.focus(); });
+adminClose.addEventListener("click", closeAdmin);
+adminOverlay.addEventListener("click", e=>{ if(e.target===adminOverlay) closeAdmin(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeAdmin(); });
+function closeAdmin(){ adminOverlay.classList.remove("open"); }
+
+// --- Login (client-side hash, avoids CORS) ---
+function hashPwd(str) {
+  let hash=0;
+  for(let i=0;i<str.length;i++){const c=str.charCodeAt(i);hash=((hash<<5)-hash)+c;hash|=0;}
+  return "h"+Math.abs(hash).toString(36);
+}
+const CORRECT_HASH = hashPwd("csAdmin#2026");
+
+adminLoginBtn.addEventListener("click", doLogin);
+adminPassword.addEventListener("keydown", e=>{ if(e.key==="Enter") doLogin(); });
+function doLogin() {
+  const pwd = adminPassword.value.trim();
+  if (!pwd) return;
+  adminLoginBtn.disabled=true;
+  adminLoginBtn.innerHTML='<span class="spinner"></span>Checking...';
+  adminLoginAlert.style.display="none";
+  setTimeout(()=>{
+    if (hashPwd(pwd)===CORRECT_HASH) {
+      adminLogin.style.display="none";
+      adminMain.style.display="block";
+      adminPassword.value="";
+      loadEventsList();
+    } else {
+      adminLoginAlert.style.display="block";
+      adminPassword.value="";
+      adminPassword.focus();
+    }
+    adminLoginBtn.disabled=false;
+    adminLoginBtn.textContent="Login";
+  },500);
+}
+
+// --- Tabs ---
+tabAdd.addEventListener("click",  ()=>switchTab("add"));
+tabList.addEventListener("click", ()=>{ switchTab("list"); loadEventsList(); });
+function switchTab(t) {
+  const isAdd = t==="add";
+  tabAdd.classList.toggle("active",isAdd);   tabAdd.setAttribute("aria-selected",isAdd);
+  tabList.classList.toggle("active",!isAdd); tabList.setAttribute("aria-selected",!isAdd);
+  panelAdd.style.display  = isAdd  ? "block" : "none";
+  panelList.style.display = !isAdd ? "block" : "none";
+}
+
+// --- Submit event ---
+evSubmitBtn.addEventListener("click", submitEvent);
+evClearBtn.addEventListener("click",  clearForm);
+refreshBtn.addEventListener("click",  loadEventsList);
+
+async function submitEvent() {
+  const title     = document.getElementById("evTitle").value.trim();
+  const startDate = document.getElementById("evStartDate").value;
+  if (!title||!startDate) { showAddAlert("error","Event title and start date are required."); return; }
+  const payload = {
+    action:      editingEventId ? "update_event" : "create_event",
+    title,
+    category:    document.getElementById("evCategory").value,
+    start_date:  startDate,
+    start_time:  document.getElementById("evStartTime").value,
+    end_date:    document.getElementById("evEndDate").value,
+    end_time:    document.getElementById("evEndTime").value,
+    location:    document.getElementById("evLocation").value.trim(),
+    description: document.getElementById("evDescription").value.trim()
+  };
+  if (editingEventId) payload.calendar_event_id = editingEventId;
+  evSubmitBtn.disabled=true;
+  evSubmitBtn.innerHTML='<span class="spinner"></span>'+(editingEventId?"Updating...":"Adding...");
+  showAddAlert("","");
+  try {
+    await fetch(CONFIG.postEndpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(payload)});
+    showAddAlert("success", editingEventId
+      ? "Event updated — check Google Calendar to confirm."
+      : "Event added — check Google Calendar to confirm.");
+    clearForm();
+    setTimeout(()=>{ if(panelList.style.display!=="none") loadEventsList(); },2500);
+  } catch(err) {
+    showAddAlert("error","Connection error: "+err.message);
+  } finally {
+    evSubmitBtn.disabled=false;
+    evSubmitBtn.textContent = editingEventId ? "Update Event" : "Add to Calendar";
+  }
+}
+
+function clearForm() {
+  ["evTitle","evStartDate","evStartTime","evEndDate","evEndTime","evLocation","evDescription"]
+    .forEach(id=>{ document.getElementById(id).value=""; });
+  document.getElementById("evCategory").value="event";
+  editingEventId=null;
+  evSubmitBtn.textContent="Add to Calendar";
+  evClearBtn.textContent="Clear Form";
+}
+
+function showAddAlert(type,msg) {
+  const el=document.getElementById("addAlert");
+  if(!msg){el.style.display="none";return;}
+  el.className="admin-alert "+(type==="success"?"admin-alert-success":"admin-alert-error");
+  el.textContent=(type==="success"?"✅ ":"❌ ")+msg;
+  el.style.display="block";
+  if(type==="success") setTimeout(()=>{el.style.display="none"},4000);
+}
+
+// --- Events list ---
+async function loadEventsList() {
+  const container=document.getElementById("eventsList");
+  const alertEl=document.getElementById("listAlert");
+  alertEl.style.display="none";
+  container.innerHTML='<div class="admin-empty">Loading events...</div>';
+  try {
+    const res  = await fetch(CONFIG.eventsEndpoint,{cache:"no-store"});
+    const data = await res.json();
+    const events = data.data||[];
+    if (events.length===0) {
+      container.innerHTML='<div class="admin-empty">No upcoming events yet. Use the Add Event tab to create one.</div>';
+      return;
+    }
+    container.innerHTML = events.map(ev=>`
+      <div class="event-item">
+        <div class="event-item-info">
+          <h4>${esc(ev.title)}</h4>
+          <div class="event-item-meta">
+            <span class="event-cat-badge">${esc(ev.category||"event")}</span>
+            <span>📅 ${formatShortDate(String(ev.start_date||""))}${ev.start_time?" · "+formatWAT(String(ev.start_time)):""}</span>
+            ${ev.location?"<span>📍 "+esc(String(ev.location))+"</span>":""}
+          </div>
+          ${ev.description?'<p style="font-size:.8rem;color:var(--muted);margin-top:.4rem">'+esc(String(ev.description))+"</p>":""}
+        </div>
+        <div class="event-actions">
+          <button class="btn-icon" title="Edit"
+            data-id="${esc(String(ev.calendar_event_id))}"
+            data-title="${esc(String(ev.title))}"
+            data-cat="${esc(String(ev.category||"event"))}"
+            data-sd="${esc(String(ev.start_date||""))}"
+            data-st="${esc(String(ev.start_time||""))}"
+            data-ed="${esc(String(ev.end_date||""))}"
+            data-et="${esc(String(ev.end_time||""))}"
+            data-loc="${esc(String(ev.location||""))}"
+            data-desc="${esc(String(ev.description||""))}"
+            onclick="adminEditEvent(this)">✏️</button>
+          <button class="btn-icon danger" title="Delete"
+            data-id="${esc(String(ev.calendar_event_id))}"
+            data-title="${esc(String(ev.title))}"
+            onclick="adminDeleteEvent(this)">🗑️</button>
+        </div>
+      </div>`).join("");
+  } catch(err) {
+    alertEl.className="admin-alert admin-alert-error";
+    alertEl.textContent="Could not load events: "+err.message;
+    alertEl.style.display="block";
+    container.innerHTML="";
+  }
+}
+
+window.adminEditEvent = function(btn) {
+  editingEventId=btn.dataset.id;
+  document.getElementById("evTitle").value       = btn.dataset.title;
+  document.getElementById("evCategory").value    = btn.dataset.cat;
+  document.getElementById("evStartDate").value   = btn.dataset.sd;
+  document.getElementById("evStartTime").value   = btn.dataset.st;
+  document.getElementById("evEndDate").value     = btn.dataset.ed;
+  document.getElementById("evEndTime").value     = btn.dataset.et;
+  document.getElementById("evLocation").value    = btn.dataset.loc;
+  document.getElementById("evDescription").value = btn.dataset.desc;
+  evSubmitBtn.textContent="Update Event";
+  evClearBtn.textContent="Cancel Edit";
+  switchTab("add");
+  document.getElementById("evTitle").focus();
+};
+
+window.adminDeleteEvent = async function(btn) {
+  const id=btn.dataset.id, title=btn.dataset.title;
+  if(!confirm('Delete "'+title+'" from Google Calendar?\n\nThis cannot be undone.')) return;
+  const alertEl=document.getElementById("listAlert");
+  try {
+    await fetch(CONFIG.postEndpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({action:"delete_event",calendar_event_id:id})});
+    alertEl.className="admin-alert admin-alert-success";
+    alertEl.textContent="Event deleted — refreshing list...";
+    alertEl.style.display="block";
+    setTimeout(()=>{ alertEl.style.display="none"; loadEventsList(); },2500);
+  } catch(err) {
+    alertEl.className="admin-alert admin-alert-error";
+    alertEl.textContent="Delete failed: "+err.message;
+    alertEl.style.display="block";
+  }
+};
+
+// ===== START =====
+loadAllData();
+</script>
+</body>
+</html>
+<script>
+// ===== HAMBURGER MENU =====
+(function(){
+  const btn = document.getElementById("hamburger");
+  const menu = document.getElementById("mobileMenu");
+  if (!btn||!menu) return;
+
+  btn.addEventListener("click", () => {
+    const isOpen = menu.classList.toggle("open");
+    btn.classList.toggle("open", isOpen);
+    btn.setAttribute("aria-expanded", isOpen);
+  });
+
+  // Close when a link is tapped
+  menu.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => {
+      menu.classList.remove("open");
+      btn.classList.remove("open");
+      btn.setAttribute("aria-expanded","false");
+    });
+  });
+
+  // Close when tapping outside
+  document.addEventListener("click", e => {
+    if (!menu.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+      menu.classList.remove("open");
+      btn.classList.remove("open");
+      btn.setAttribute("aria-expanded","false");
+    }
+  });
+})();
+</script>
